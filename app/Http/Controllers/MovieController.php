@@ -10,16 +10,10 @@ use Illuminate\Http\Request;
 class MovieController extends Controller
 {
     public function index(
-
         MovieService $service,
-        MovieResponseTransformer $transformer
+        MovieResponseTransformer $transformer,
+        MovieFindParams $findParams
     ) {
-        /** @var MovieFindParams $findParams */
-        $findParams = resolve(MovieFindParams::class);
-        $findParams->setTitle('film 1');
-        $findParams->setYear(2023);
-        $findParams->setGenres([1,2]);
-
         return response()->json(
             $transformer->list(
                 $service->find($findParams)
