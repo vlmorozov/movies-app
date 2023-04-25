@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 /**
+ *  @property-read int $id
  *  @property string $title
  *  @property string $description
  *  @property Carbon $release_date

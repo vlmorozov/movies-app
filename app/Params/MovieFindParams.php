@@ -4,7 +4,7 @@ namespace App\Params;
 
 class MovieFindParams implements FindParamsInterface
 {
-    private ?string $title = null;
+    private ?string $searchQuery = null;
 
     private ?array $genres = null;
 
@@ -38,16 +38,16 @@ class MovieFindParams implements FindParamsInterface
         return $this->offset;
     }
 
-    public function setTitle(?string $title): self
+    public function setSearchQuery(?string $searchQuery): self
     {
-        $this->title = $title;
+        $this->searchQuery = $searchQuery;
 
         return $this;
     }
 
-    public function getTitle(): ?string
+    public function getSearchQuery(): ?string
     {
-        return $this->title;
+        return $this->searchQuery;
     }
 
     public function setGenres(?array $genres): self

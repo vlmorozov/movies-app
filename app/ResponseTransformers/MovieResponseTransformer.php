@@ -18,6 +18,7 @@ class MovieResponseTransformer implements ResponseTransformerInterface
     public function one(Movie $movie): array
     {
         return [
+            'id' => $movie->id,
             'title' => $movie->title,
             'description' => $movie->description,
             'release_date' => $movie->release_date->format(self::DATE_FORMAT),
@@ -31,6 +32,7 @@ class MovieResponseTransformer implements ResponseTransformerInterface
 
         foreach ($movies as $movie) {
             $result[] = [
+                'id' => $movie->id,
                 'title' => $movie->title,
                 'description' => $this->textCutter->short($movie->description),
                 'release_date' => $movie->release_date->format(self::DATE_FORMAT),

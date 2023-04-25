@@ -18,8 +18,8 @@ class MovieService
     public function find(MovieFindParams $params): Collection
     {
         return Movie::query()
-            ->when($params->getTitle(), function (Builder $builder) use ($params) {
-                $builder->where('title', 'like', '%' . $params->getTitle() . '%');
+            ->when($params->getSearchQuery(), function (Builder $builder) use ($params) {
+                $builder->where('title', 'like', '%' . $params->getSearchQuery() . '%');
             })
             ->when($params->getYear(), function (Builder $builder) use ($params) {
                 $builder->where(new Expression('YEAR(release_date)'), $params->getYear());
